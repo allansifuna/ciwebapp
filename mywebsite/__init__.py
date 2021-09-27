@@ -9,7 +9,7 @@ data = json.load(open(os.path.join(basedir, 'data.json')))
 def create_app(config_class=Config):
     """Sets up the application ans returns a flask application instance"""
     app = Flask(__name__)
-    app.config.from_object(Config)
+    app.config.from_object(config_class)
     from mywebsite.project.routes import app2
     app.register_blueprint(app2)
     return(app)

@@ -1,3 +1,12 @@
 class Config:
     SECRET_KEY = 'kdhjgvfcmvyugdiqygiqebudb'
-    SERVER_NAME="localhost"
+
+
+class DevConfig(Config):
+    SERVER_NAME = 'localhost'
+
+
+config = {
+    'dev': DevConfig,
+    'prod': Config
+}
