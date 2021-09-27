@@ -1,0 +1,31 @@
+{%extends "layout.html"%}
+{%block content%}
+<div class= "home">
+    <h1>My home page</h1>
+    <p></p>
+     <form method="POST">
+       {{form.hidden_tag()}}
+       <div>
+         {%if form.word.errors%}
+         {{form.word()}}
+         <div class="invalid-feedback">
+           {%for error in form.word.errors%}
+           <span>{{error}}</span><br />
+           {%endfor%}
+       </div>
+       {%else%}
+       {{form.word(placeholder="Enter A word...")}}
+       {%endif%}
+       <button type="submit">Search</button>
+    </div>
+    <br>
+    <div>
+      {%if lst=='list'%}
+        <h4>{{output[0]}}</h4>
+      {%else%}
+      <h4>{{output}}</h4>
+      {%endif%}
+    </div>
+</form>
+</div>
+{%endblock%}
